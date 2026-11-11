@@ -48,7 +48,7 @@
           <section class="left-column">
             <section class="panel item-entry-panel">
               <div class="section-heading">
-                <div class="heading-icon">＋</div>
+                <div class="heading-icon" aria-hidden="true">💍</div>
                 <div><h2>Loan Items</h2><p>Add jewellery or other pledged items for this loan</p></div>
                 <button type="button" class="btn btn-primary btn-small" id="addItemBtn">＋ Add Item</button>
               </div>
@@ -106,7 +106,7 @@
             </section>
 
             <section class="panel customer-panel">
-              <div class="section-heading compact"><div class="customer-heading-icon">♙</div><div><h2>Customer Details</h2><p>Customer identity and contact information</p></div></div>
+              <div class="section-heading compact"><div class="customer-heading-icon" aria-hidden="true">👤</div><div><h2>Customer Details</h2><p>Customer identity and contact information</p></div></div>
               <div class="customer-fields">
                 <label class="field"><span>Phone</span><div class="input-with-icon"><span>☎</span><input id="phone" type="tel" maxlength="10" inputmode="numeric" placeholder="Enter 10 digit number" /></div></label>
                 <div class="or-divider"><span>OR</span></div>
@@ -119,14 +119,14 @@
                 <label class="field"><span>Address</span><div class="input-with-icon textarea-wrap"><span>⌂</span><textarea id="address" rows="2" placeholder="Enter full address"></textarea></div></label>
               </div>
               <section class="disbursement-card" aria-labelledby="disbursementTitle">
-                <div class="disbursement-heading"><span class="disbursement-icon">₹</span><div><h3 id="disbursementTitle">Loan Disbursement Details</h3><p>Verify the recipient before sending the loan amount through GPay</p></div></div>
+                <div class="disbursement-heading"><span class="disbursement-icon" aria-hidden="true">↗</span><div><h3 id="disbursementTitle">Loan Disbursement Details</h3><p>Confirm the recipient and amount before completing this loan</p></div></div>
                 <div class="disbursement-grid">
-                  <div class="disbursement-value"><span>Customer Name</span><strong id="disbursementCustomerName">—</strong></div>
-                  <label class="field gpay-field"><span>GPay Number <em>*</em></span><div class="input-with-icon"><span>☎</span><input id="gpayNumber" type="tel" inputmode="numeric" maxlength="10" placeholder="Enter GPay mobile number" autocomplete="off" required /></div><small class="field-hint">Enter the 10-digit mobile number linked to Google Pay</small></label>
-                  <div class="disbursement-amount"><span>Loan Amount to Send</span><strong id="disbursementLoanAmount">Rs. 0</strong></div>
+                  <div class="disbursement-value recipient-name"><span><span class="detail-icon" aria-hidden="true">👤</span> Recipient name</span><strong id="disbursementCustomerName">Enter customer name above</strong></div>
+                  <label class="field gpay-field"><span><span class="detail-icon" aria-hidden="true">📱</span> GPay mobile number <em>*</em></span><div class="input-with-icon"><span aria-hidden="true">+91</span><input id="gpayNumber" type="tel" inputmode="numeric" maxlength="10" pattern="[6-9][0-9]{9}" placeholder="10-digit GPay number" autocomplete="off" required /></div><small class="field-hint">Enter the Indian mobile number linked to the customer’s Google Pay account.</small></label>
+                  <div class="disbursement-amount"><span><span class="detail-icon" aria-hidden="true">₹</span> Loan amount to be sent</span><strong id="disbursementLoanAmount">Rs. 0</strong></div>
                 </div>
               </section>
-              <div class="customer-actions"><button type="button" class="btn btn-outline-danger" id="clearAll">▤ &nbsp;Clear All</button><button type="submit" class="btn btn-primary complete-btn">Complete Loan <span>→</span></button></div>
+              <div class="customer-actions"><button type="button" class="btn btn-outline-danger" id="clearAll"><span aria-hidden="true">🗑</span> Clear All</button><button type="submit" class="btn btn-primary complete-btn"><span class="button-icon" aria-hidden="true">✓</span> Complete Loan <span aria-hidden="true">→</span></button></div>
             </section>
           </aside>
         </div>
