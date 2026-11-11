@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#191923" />
+  <title>Boompledge | Create Loan</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-row">
+        <a class="brand" href="#"><span>Boom</span><b>pledge</b></a>
+        <button class="collapse-btn" id="collapseSidebar" aria-label="Collapse sidebar">◧</button>
+      </div>
+      <nav class="navigation" aria-label="Main navigation">
+        <a href="#" class="nav-link"><span class="nav-icon">⌂</span><span>Dashboard</span></a>
+        <a href="#" class="nav-link"><span class="nav-icon">▦</span><span>Monthly Report</span></a>
+        <a href="#" class="nav-link"><span class="nav-icon">▧</span><span>All Loan Status</span></a>
+        <a href="#" class="nav-link"><span class="nav-icon">⇄</span><span>Repledge Loan</span></a>
+        <a href="#" class="nav-link"><span class="nav-icon">⌁</span><span>Loan Summary</span><span class="nav-chevron">›</span></a>
+        <a href="#" class="nav-link"><span class="nav-icon">♧</span><span>Customer Book</span><span class="nav-chevron">›</span></a>
+        <a href="#" class="nav-link"><span class="nav-icon">♧</span><span>Loan Report</span><span class="nav-chevron">›</span></a>
+        <a href="#" class="nav-link"><span class="nav-icon">▤</span><span>Repledge Summary</span><span class="nav-chevron">›</span></a>
+        <a href="#" class="nav-link"><span class="nav-icon">☷</span><span>Tools &amp; Support</span></a>
+        <a href="#" class="nav-link"><span class="nav-icon">◎</span><span>Account Settings</span></a>
+      </nav>
+      <div class="sidebar-promo">
+        <div class="promo-shield">✓</div>
+        <strong>உங்கள் தங்க நகையின்<br/>பாதுகாப்பை உறுதி செய்யுங்கள்!</strong>
+        <small>Secure • Simple • Trusted</small>
+      </div>
+      <div class="sidebar-foot">Boompledge · Loan Management</div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button>
+          <div><div class="eyebrow">LOAN MANAGEMENT</div><h1>Create New Loan</h1></div>
+        </div>
+        <div class="topbar-right"><span class="status-dot"></span><span>New loan entry</span><button class="more-btn" aria-label="More options">⋮</button></div>
+      </header>
+
+      <form id="loanForm" novalidate>
+        <div class="page-grid">
+          <section class="left-column">
+            <section class="panel item-entry-panel">
+              <div class="section-heading">
+                <div class="heading-icon">＋</div>
+                <div><h2>Loan Items</h2><p>Add jewellery or other pledged items for this loan</p></div>
+                <button type="button" class="btn btn-primary btn-small" id="addItemBtn">＋ Add Item</button>
+              </div>
+              <div id="emptyItems" class="empty-items"><div class="empty-icon">◇</div><strong>Click “Add Item” to get started.</strong><span>Add at least one pledged item to calculate the loan summary.</span></div>
+              <div id="itemsList" class="items-list hidden"></div>
+            </section>
+
+            <section class="panel photos-panel">
+              <div class="section-heading">
+                <div class="heading-icon blue">▣</div>
+                <div><h2>Photos</h2><p>Upload photos for this loan</p></div>
+                <button type="button" class="gallery-pill" id="galleryUpload">⇧ Gallery Upload Option <b>NEW UPDATE</b></button>
+              </div>
+              <div class="photo-grid">
+                <div class="upload-card" data-photo="customer"><div class="upload-symbol">♙</div><strong>Customer</strong><div class="upload-actions"><button type="button" class="soft-btn camera-btn">◎ Camera</button><button type="button" class="soft-btn upload-btn">⇧ Upload</button></div><small>or drag &amp; drop image</small><input type="file" accept="image/*" hidden /></div>
+                <div class="upload-card" data-photo="jewel"><div class="upload-symbol">◇</div><strong>Jewel</strong><div class="upload-actions"><button type="button" class="soft-btn camera-btn">◎ Camera</button><button type="button" class="soft-btn upload-btn">⇧ Upload</button></div><small>or drag &amp; drop image</small><input type="file" accept="image/*" hidden /></div>
+                <div class="upload-card" data-photo="id"><div class="upload-symbol">▣</div><strong>ID (Optional)</strong><div class="upload-actions"><button type="button" class="soft-btn camera-btn">◎ Camera</button><button type="button" class="soft-btn upload-btn">⇧ Upload</button></div><small>or drag &amp; drop image</small><input type="file" accept="image/*" hidden /></div>
+              </div>
+            </section>
+
+            <section class="panel summary-panel">
+              <div class="section-heading">
+                <div class="heading-icon blue">▤</div>
+                <div><h2>Item Summary</h2><p>Total weights, quantity &amp; amounts</p></div>
+              </div>
+              <div class="summary-stats">
+                <div class="stat"><span class="stat-icon">▣</span><small>GROSS WT.</small><strong id="grossWeight">0.000g</strong></div>
+                <div class="stat"><span class="stat-icon">⌁</span><small>WASTAGE</small><strong id="wastage">0.000g</strong></div>
+                <div class="stat"><span class="stat-icon">⚖</span><small>NET WT.</small><strong id="netWeight">0.000g</strong></div>
+                <div class="stat"><span class="stat-icon">⬡</span><small>TOTAL QTY.</small><strong id="totalQty">0</strong></div>
+              </div>
+              <div class="summary-bottom"><span>Value Amount: <b id="valueAmount">Rs. 0</b></span><span class="loan-chip">Loan Amount: <b id="summaryLoanAmount">Rs. 0</b></span></div>
+            </section>
+          </section>
+
+          <aside class="right-column">
+            <section class="panel loan-details-panel">
+              <div class="section-heading compact"><div class="heading-icon blue">₹</div><div><h2>Loan Details</h2><p>Configure loan amount and interest</p></div></div>
+              <div class="field-grid">
+                <label class="field"><span>Loan Amount (Rs.) <em>*</em></span><input id="loanAmount" type="number" min="0" step="1" placeholder="Enter loan amount" required /></label>
+                <label class="field"><span>Interest Amount (Rs.)</span><input id="interestAmount" type="number" min="0" step="1" placeholder="Rs. 0" value="0" /></label>
+                <label class="field"><span>Overdue Duration</span><select id="overdueDuration"><option>1 Month</option><option>3 Months</option><option>6 Months</option><option selected>1 Year</option><option>2 Years</option></select></label>
+                <label class="field"><span>Overdue Date</span><input id="overdueDate" type="date" value="2027-11-10" /></label>
+                <label class="field"><span>Interest Type</span><select id="interestType"><option selected>Daily</option><option>Monthly</option><option>Yearly</option><option>Flat</option></select></label>
+                <label class="field"><span>Interest Rate (%)</span><input id="interestRate" type="number" min="0" step="0.01" placeholder="Enter rate" /></label>
+              </div>
+              <div class="field full-field"><span class="field-label">Payment Mode</span>
+                <div class="payment-options">
+                  <label class="payment-option" id="cashOption"><input type="radio" name="paymentMode" value="cash" /><span class="radio-mark"></span><span class="payment-copy"><b>Cash (Shop Bal)</b><small id="cashBalance">₹1,61,525</small></span></label>
+                  <label class="payment-option selected" id="bankOption"><input type="radio" name="paymentMode" value="bank" checked /><span class="radio-mark"></span><span class="payment-copy"><b>Bank Bal</b><small id="bankCount">1 Account</small></span></label>
+                </div>
+              </div>
+              <div class="field full-field" id="bankAccountWrap"><label for="bankAccount">Bank Account <em>*</em></label><select id="bankAccount"><option value="canara" data-balance="98000">Canara Bank (1234) - ₹98,000</option><option value="sbi" data-balance="42500">State Bank of India (8821) - ₹42,500</option><option value="icici" data-balance="126000">ICICI Bank (5610) - ₹1,26,000</option></select><small class="field-hint" id="selectedBankBalance">Available balance: ₹98,000</small></div>
+              <div class="field full-field hidden" id="cashNotice"><div class="notice">Cash payment selected. Amount will be adjusted from the shop balance.</div></div>
+            </section>
+
+            <section class="panel customer-panel">
+              <div class="section-heading compact"><div class="customer-heading-icon">♙</div><div><h2>Customer Details</h2><p>Customer identity and contact information</p></div></div>
+              <div class="customer-fields">
+                <label class="field"><span>Phone</span><div class="input-with-icon"><span>☎</span><input id="phone" type="tel" maxlength="10" inputmode="numeric" placeholder="Enter 10 digit number" /></div></label>
+                <div class="or-divider"><span>OR</span></div>
+                <label class="field"><span>Aadhar No. (Must Verify at Owner side) <em>*</em></span><div class="input-with-icon"><span>▣</span><input id="aadhaar" type="text" maxlength="14" inputmode="numeric" placeholder="---- ---- ----" required /></div><small class="field-hint">12-digit Aadhaar number. Verification must be completed by the owner.</small></label>
+                <label class="field"><span>Name</span><div class="input-with-icon"><span>♙</span><input id="customerName" type="text" placeholder="Full Name" /></div></label>
+                <div class="field-grid relation-grid">
+                  <label class="field"><span>Relation Type</span><select id="relationType"><option>S/O (Son of)</option><option>D/O (Daughter of)</option><option>W/O (Wife of)</option><option>H/O (Husband of)</option><option>C/O (Care of)</option></select></label>
+                  <label class="field"><span>Relation Name</span><div class="input-with-icon"><span>♙</span><input id="relationName" type="text" placeholder="Relation Name" /></div></label>
+                </div>
+                <label class="field"><span>Address</span><div class="input-with-icon textarea-wrap"><span>⌂</span><textarea id="address" rows="2" placeholder="Enter full address"></textarea></div></label>
+              </div>
+              <section class="disbursement-card" aria-labelledby="disbursementTitle">
+                <div class="disbursement-heading"><span class="disbursement-icon">₹</span><div><h3 id="disbursementTitle">Loan Disbursement Details</h3><p>Verify the recipient before sending the loan amount through GPay</p></div></div>
+                <div class="disbursement-grid">
+                  <div class="disbursement-value"><span>Customer Name</span><strong id="disbursementCustomerName">—</strong></div>
+                  <label class="field gpay-field"><span>GPay Number <em>*</em></span><div class="input-with-icon"><span>☎</span><input id="gpayNumber" type="tel" inputmode="numeric" maxlength="10" placeholder="Enter GPay mobile number" autocomplete="off" required /></div><small class="field-hint">Enter the 10-digit mobile number linked to Google Pay</small></label>
+                  <div class="disbursement-amount"><span>Loan Amount to Send</span><strong id="disbursementLoanAmount">Rs. 0</strong></div>
+                </div>
+              </section>
+              <div class="customer-actions"><button type="button" class="btn btn-outline-danger" id="clearAll">▤ &nbsp;Clear All</button><button type="submit" class="btn btn-primary complete-btn">Complete Loan <span>→</span></button></div>
+            </section>
+          </aside>
+        </div>
+      </form>
+      <footer class="page-footer">Boompledge · Secure Loan Management <span>Demo front-end project</span></footer>
+    </main>
+  </div>
+
+  <dialog id="itemDialog" class="item-dialog">
+    <form method="dialog" id="itemForm">
+      <div class="dialog-heading"><div><h2>Add Loan Item</h2><p>Enter the pledged item's details</p></div><button type="button" class="dialog-close" id="closeDialog">×</button></div>
+      <div class="dialog-grid">
+        <label class="field"><span>Item Type <em>*</em></span><select id="itemType" required><option value="">Select item</option><option>Gold Chain</option><option>Gold Ring</option><option>Gold Bangle</option><option>Gold Necklace</option><option>Gold Coin</option><option>Silver Item</option><option>Other</option></select></label>
+        <label class="field"><span>Description</span><input id="itemDescription" placeholder="Item description" /></label>
+        <label class="field"><span>Gross Weight (g) <em>*</em></span><input id="itemGross" type="number" min="0.001" step="0.001" placeholder="0.000" required /></label>
+        <label class="field"><span>Wastage (g)</span><input id="itemWastage" type="number" min="0" step="0.001" value="0" /></label>
+        <label class="field"><span>Quantity <em>*</em></span><input id="itemQty" type="number" min="1" step="1" value="1" required /></label>
+        <label class="field"><span>Rate / Value (Rs.) <em>*</em></span><input id="itemValue" type="number" min="0" step="1" placeholder="Enter value" required /></label>
+      </div>
+      <div class="dialog-actions"><button type="button" class="btn btn-outline" id="cancelItem">Cancel</button><button type="submit" class="btn btn-primary">Add Item</button></div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
