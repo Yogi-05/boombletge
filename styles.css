@@ -5,3 +5,30 @@
 
 .disbursement-card{margin-top:14px;border:1px solid #f0d6c7;border-radius:8px;background:#fffaf7;padding:12px}.disbursement-heading{display:flex;align-items:center;gap:9px;padding-bottom:10px;border-bottom:1px solid #f3e5dc;margin-bottom:11px}.disbursement-icon{width:29px;height:29px;display:grid;place-items:center;border-radius:7px;background:#fff0e7;color:#e85b20;font-size:17px;font-weight:800}.disbursement-heading h3{font-size:12px;color:#303746;margin:0}.disbursement-heading p{font-size:10px;color:#89919e;margin:3px 0 0}.disbursement-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:10px;align-items:start}.disbursement-value,.disbursement-amount{min-width:0;display:flex;flex-direction:column;gap:6px;padding:9px 10px;border:1px solid #eceff3;border-radius:6px;background:#fff}.disbursement-value>span,.disbursement-amount>span{font-size:10px;color:#778191;font-weight:600}.disbursement-value strong{font-size:13px;color:#303746;overflow-wrap:anywhere;min-height:18px}.gpay-field{gap:5px}.gpay-field>span{font-size:10px;font-weight:650;color:#333b49}.gpay-field .input-with-icon{height:35px}.disbursement-amount{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:space-between;background:#f4f8ff;border-color:#dce8fb}.disbursement-amount strong{font-size:15px;color:#2866c8}.gpay-field .field-hint{line-height:1.35}
 @media(max-width:600px){.disbursement-grid{grid-template-columns:1fr}.disbursement-amount{grid-column:auto}}
+
+
+/* Loan disbursement: clearer recipient-first hierarchy */
+.disbursement-card{margin-top:16px;padding:15px;background:#fff;border:1px solid #dfe7f3;border-radius:10px;box-shadow:0 2px 8px rgba(31,55,90,.045)}
+.disbursement-heading{gap:11px;padding-bottom:12px;margin-bottom:13px;border-bottom:1px solid #edf1f6}
+.disbursement-icon{width:34px;height:34px;flex:0 0 34px;border-radius:9px;background:#eaf2ff;color:#2867c7;font-size:19px}
+.disbursement-heading h3{font-size:13px;font-weight:750;letter-spacing:.05px}
+.disbursement-heading p{font-size:10px;line-height:1.45;margin-top:3px}
+.disbursement-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:11px}
+.disbursement-value,.disbursement-amount{padding:11px 12px;border-radius:8px;gap:7px}
+.disbursement-value>span,.disbursement-amount>span{display:flex;align-items:center;gap:6px;font-size:10px;color:#697586}
+.detail-icon{display:inline-flex;align-items:center;justify-content:center;min-width:17px;height:17px;font-size:13px}
+.disbursement-value strong{font-size:14px;line-height:1.35;color:#263449;min-height:20px}
+.gpay-field{padding:1px 0}
+.gpay-field>span{display:flex;align-items:center;gap:5px;font-size:10px}
+.gpay-field .input-with-icon{height:39px;border-color:#cbd5e1;border-radius:7px}
+.gpay-field .input-with-icon>span{font-size:12px;font-weight:700;color:#52647b}
+.gpay-field input{font-weight:600;letter-spacing:.3px}
+.gpay-field .field-hint{font-size:9px;line-height:1.45}
+.disbursement-amount{grid-column:1/-1;min-height:54px;background:#f1f6ff;border:1px solid #dce8fb;flex-direction:row;align-items:center;justify-content:space-between}
+.disbursement-amount strong{font-size:18px;font-weight:800;color:#205eb8;white-space:nowrap}
+.customer-actions{margin-top:13px;gap:10px}
+.customer-actions .btn{min-height:39px}
+.complete-btn{font-weight:700}
+.button-icon{font-size:14px}
+.btn-outline-danger{display:inline-flex;align-items:center;gap:7px}
+@media(max-width:600px){.disbursement-card{padding:12px}.disbursement-grid{grid-template-columns:1fr}.disbursement-amount{grid-column:auto}.disbursement-amount strong{font-size:16px}}
