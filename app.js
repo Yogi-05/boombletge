@@ -55,7 +55,7 @@
     $('selectedBankBalance').textContent = 'Available balance: ₹' + Number(option.dataset.balance).toLocaleString('en-IN');
   });
   $('loanAmount').addEventListener('input', updateSummary);
-  $('customerName').addEventListener('input', () => { $('disbursementCustomerName').textContent = $('customerName').value.trim() || '—'; });
+  $('customerName').addEventListener('input', () => { $('disbursementCustomerName').textContent = $('customerName').value.trim() || 'Enter customer name above'; });
   $('gpayNumber').addEventListener('input', (e) => { e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10); });
   $('galleryUpload').addEventListener('click', () => document.querySelectorAll('.upload-card input').forEach(input => input.click()));
 
@@ -76,7 +76,7 @@
 
   $('clearAll').addEventListener('click', () => {
     if (!confirm('Clear all loan details, customer information, items and selected photos?')) return;
-    form.reset(); $('disbursementCustomerName').textContent = '—'; items.splice(0, items.length); updateSummary();
+    form.reset(); $('disbursementCustomerName').textContent = 'Enter customer name above'; items.splice(0, items.length); updateSummary();
     document.querySelectorAll('.upload-card').forEach(card => { const img=card.querySelector('img'); if(img){URL.revokeObjectURL(img.src);img.remove();} card.classList.remove('has-image'); card.querySelector('input').value=''; });
     document.querySelector('input[name="paymentMode"][value="bank"]').checked = true; updatePaymentMode();
     $('selectedBankBalance').textContent = 'Available balance: ₹98,000'; toast('Form cleared.');
@@ -92,7 +92,7 @@
     const customerName = $('customerName').value.trim();
     const gpayNumber = $('gpayNumber').value.replace(/\D/g, '');
     if (!customerName) { toast('Enter the customer name for loan disbursement.'); $('customerName').focus(); return; }
-    if (gpayNumber.length !== 10) { toast('Enter the valid 10-digit GPay number for receiving the loan amount.'); $('gpayNumber').focus(); return; }
+    if (!/^[6-9][0-9]{9}$/.test(gpayNumber)) { toast('Enter a valid 10-digit Indian mobile number linked to GPay.'); $('gpayNumber').focus(); return; }
     const mode = document.querySelector('input[name="paymentMode"]:checked').value;
     if (mode === 'bank') {
       const selected = $('bankAccount').selectedOptions[0];
